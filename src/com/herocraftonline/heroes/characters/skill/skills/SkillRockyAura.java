@@ -107,7 +107,7 @@
 /* 105 */     private boolean firstTime = true;
 /*     */     private final long duration;
 /*     */ 
-/* 109 */     public IcyAuraEffect(SkillRockyAura skill, long period, long duration, int tickDamage, int range, int manaLoss) { super("RockyAura", period);
+/* 109 */     public IcyAuraEffect(SkillRockyAura skill, long period, long duration, int tickDamage, int range, int manaLoss) { super(skill,"RockyAura", period);
 /* 110 */       this.tickDamage = tickDamage;
 /* 111 */       this.range = range;
 /* 112 */       this.mana = manaLoss;
@@ -141,7 +141,7 @@
 /* 140 */         if ((entity instanceof LivingEntity)) {
 /* 141 */           LivingEntity lEntity = (LivingEntity)entity;
 /*     */ 
-/* 143 */           Skill.damageEntity(lEntity, player, this.tickDamage, EntityDamageEvent.DamageCause.MAGIC);
+/* 143 */           Skill.damageEntity(lEntity, player, this.tickDamage, DamageCause.MAGIC);
 /*     */         }
 /*     */       }
 /* 146 */       Location le = player.getLocation();

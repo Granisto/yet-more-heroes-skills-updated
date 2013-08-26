@@ -101,14 +101,14 @@
 /* 110 */     for (Entity e : player.getNearbyEntities(radius, radius, radius))
 /* 111 */       if ((e instanceof Creature)) {
 /* 112 */         Creature c = (Creature)e;
-/* 113 */         damageEntity(c, player, damage, EntityDamageEvent.DamageCause.MAGIC);
+/* 113 */         damageEntity(c, player, damage, DamageCause.MAGIC);
 /*     */       }
 /* 115 */       else if ((e instanceof Player)) {
 /* 116 */         Player p = (Player)e;
 /* 117 */         if ((!hero.hasParty()) || (!hero.getParty().isPartyMember(this.plugin.getCharacterManager().getHero(p))))
 /*     */         {
 /* 120 */           if (damageCheck(player, p)) {
-/* 121 */             damageEntity(p, player, damage, EntityDamageEvent.DamageCause.MAGIC);
+/* 121 */             damageEntity(p, player, damage, DamageCause.MAGIC);
 /*     */ 
 /* 123 */             Hero tHero = this.plugin.getCharacterManager().getHero(p);
 /* 124 */             tHero.addEffect(new StunEffect(this, duration));

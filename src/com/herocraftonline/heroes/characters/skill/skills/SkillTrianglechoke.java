@@ -85,7 +85,7 @@
 /*     */   public SkillResult use(Hero hero, LivingEntity target, String[] args)
 /*     */   {
 /*  86 */     int damage = SkillConfigManager.getUseSetting(hero, this, SkillSetting.DAMAGE, 1, false);
-/*  87 */     damageEntity(target, hero.getPlayer(), damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK, false);
+/*  87 */     damageEntity(target, hero.getPlayer(), damage, DamageCause.ENTITY_ATTACK, false);
 /*     */ 
 /*  89 */     if ((target instanceof Player)) {
 /*  90 */       Player targetPlayer = (Player)target;

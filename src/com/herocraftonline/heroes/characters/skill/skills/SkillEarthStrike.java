@@ -104,7 +104,7 @@
 /* 106 */     float jMod = (float)SkillConfigManager.getUseSetting(hero, this, "JumpMultiplier", 0.0D, false);
 /* 107 */     int newDmg = (int)(bMulti <= 0.0F ? bDmg : bDmg + bMulti * hero.getLevel());
 /*     */ 
-/* 109 */     List nearby = player.getNearbyEntities(radius, radius, radius);
+/* 109 */     List<Entity> nearby = player.getNearbyEntities(radius, radius, radius);
 /* 110 */     HeroParty hParty = hero.getParty();
 /* 111 */     int hitsLeft = targets;
 /* 112 */     Vector flyer = new Vector(0.0F, jMod, 0.0F);
@@ -115,14 +115,14 @@
 /*     */         {
 /* 119 */           if ((entity instanceof Monster)) {
 /* 120 */             addSpellTarget(entity, hero);
-/* 121 */             damageEntity((LivingEntity)entity, player, newDmg, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 121 */             damageEntity((LivingEntity)entity, player, newDmg, DamageCause.ENTITY_ATTACK);
 /* 122 */             entity.setVelocity(flyer);
 /* 123 */             hitsLeft--;
 /*     */           }
 /* 125 */           if ((entity instanceof Player)) {
 /* 126 */             if (damageCheck(player, (LivingEntity)entity)) {
 /* 127 */               addSpellTarget(entity, hero);
-/* 128 */               damageEntity((LivingEntity)entity, player, newDmg, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 128 */               damageEntity((LivingEntity)entity, player, newDmg, DamageCause.ENTITY_ATTACK);
 /*     */             }
 /* 130 */             entity.setVelocity(flyer);
 /* 131 */             hitsLeft--;
@@ -133,14 +133,14 @@
 /* 136 */         if (hitsLeft <= 0) break;
 /* 137 */         if ((entity instanceof Monster)) {
 /* 138 */           addSpellTarget(entity, hero);
-/* 139 */           damageEntity((LivingEntity)entity, player, newDmg, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 139 */           damageEntity((LivingEntity)entity, player, newDmg, DamageCause.ENTITY_ATTACK);
 /* 140 */           entity.setVelocity(flyer);
 /* 141 */           hitsLeft--;
 /*     */         }
 /* 143 */         if ((entity instanceof Player)) {
 /* 144 */           if (damageCheck(player, (LivingEntity)entity)) {
 /* 145 */             addSpellTarget(entity, hero);
-/* 146 */             damageEntity((LivingEntity)entity, player, newDmg, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 146 */             damageEntity((LivingEntity)entity, player, newDmg, DamageCause.ENTITY_ATTACK);
 /*     */           }
 /* 148 */           entity.setVelocity(flyer);
 /* 149 */           hitsLeft--;

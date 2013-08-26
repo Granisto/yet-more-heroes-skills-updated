@@ -47,7 +47,7 @@
 /*  40 */     int radius = (int)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.RADIUS.node(), 10, false) + SkillConfigManager.getUseSetting(hero, this, "radius-increase", 0.0D, false) * hero.getSkillLevel(this));
 /*     */ 
 /*  42 */     radius = radius > 0 ? radius : 0;
-/*  43 */     long duration = ()(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 12000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
+/*  43 */     long duration = (long)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 12000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
 /*     */ 
 /*  45 */     duration = duration > 0L ? duration : 0L;
 /*  46 */     long period = SkillConfigManager.getUseSetting(hero, this, SkillSetting.PERIOD.node(), 3000, false);
@@ -115,7 +115,7 @@
 /*     */   public SkillResult use(Hero hero, String[] args)
 /*     */   {
 /* 116 */     Player player = hero.getPlayer();
-/* 117 */     long duration = ()(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 12000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
+/* 117 */     long duration = (long)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 12000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
 /*     */ 
 /* 119 */     duration = duration > 0L ? duration : 0L;
 /* 120 */     int manaTick = (int)(SkillConfigManager.getUseSetting(hero, this, "mana-tick", 4, false) + SkillConfigManager.getUseSetting(hero, this, "mana-tick-increase", 0.0D, false) * hero.getSkillLevel(this));
@@ -148,11 +148,11 @@
 /* 149 */     return SkillResult.NORMAL;
 /*     */   }
 /*     */   public class WisdomEffect extends PeriodicHealEffect {
-/*     */     private final int amount;
+/*     */     private final double amount;
 /*     */     private final int manaMultiplier;
 /*     */ 
-/*     */     public WisdomEffect(Skill skill, long period, long duration, int amount, Player applier, int manaMultiplier) {
-/* 157 */       super("Vitalize", period, duration, amount, applier);
+/*     */     public WisdomEffect(Skill skill, long period, long duration, double amount, Player applier, int manaMultiplier) {
+/* 157 */       super(skill, "Vitalize", period, duration, amount, applier);
 /* 158 */       this.manaMultiplier = manaMultiplier;
 /* 159 */       this.amount = amount;
 /* 160 */       this.types.add(EffectType.DISPELLABLE);

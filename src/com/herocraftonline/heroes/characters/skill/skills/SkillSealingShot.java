@@ -81,7 +81,7 @@
 /*     */ 
 /*     */     @EventHandler(priority=EventPriority.HIGHEST)
 /*     */     public void onEntityDamage(WeaponDamageEvent event) {
-/*  85 */       if ((!event.isCancelled()) && (event.getCause().equals(EntityDamageEvent.DamageCause.PROJECTILE)) && 
+/*  85 */       if ((!event.isCancelled()) && (event.getCause().equals(DamageCause.PROJECTILE)) && 
 /*  86 */         ((event.getDamager() instanceof Hero))) {
 /*  87 */         Hero hero = (Hero)event.getDamager();
 /*  88 */         float amount = (float)(SkillConfigManager.getUseSetting(hero, this.skill, SkillSetting.AMOUNT.node(), 0.2D, false) + SkillConfigManager.getUseSetting(hero, this.skill, "amount-increase", 0.0D, false) * hero.getSkillLevel(this.skill));
@@ -98,19 +98,19 @@
 /*  99 */               Hero thero = SkillSealingShot.this.plugin.getCharacterManager().getHero((Player)event.getEntity());
 /* 100 */               if (Math.random() < chance) {
 /* 101 */                 thero.addEffect(new SilenceEffect(this.skill, duration));
-/* 102 */                 event.setDamage(thero.getMaxHealth() * amount * 2.0F > event.getDamage() ? (int)(thero.getMaxHealth() * amount * 2.0F) : event.getDamage());
+/* 102 */                 event.setDamage(thero.getPlayer().getMaxHealth() * amount * 2.0F > event.getDamage() ? (int)(thero.getPlayer().getMaxHealth() * amount * 2.0F) : event.getDamage());
 /*     */               }
 /*     */               else {
-/* 105 */                 event.setDamage(thero.getMaxHealth() * amount > event.getDamage() ? (int)(thero.getMaxHealth() * amount) : event.getDamage());
+/* 105 */                 event.setDamage(thero.getPlayer().getMaxHealth() * amount > event.getDamage() ? (int)(thero.getPlayer().getMaxHealth() * amount) : event.getDamage());
 /*     */               }
 /*     */ 
 /*     */             }
 /* 109 */             else if (Math.random() < chance) {
-/* 110 */               event.setDamage((int)(SkillSealingShot.this.plugin.getCharacterManager().getMonster((LivingEntity)event.getEntity()).getMaxHealth() * amount * 2.0F) > event.getDamage() / 5 ? (int)(SkillSealingShot.this.plugin.getCharacterManager().getMonster((LivingEntity)event.getEntity()).getMaxHealth() * amount * 2.0F) : event.getDamage() / 5);
+/* 110 */               event.setDamage((((LivingEntity)event.getEntity()).getMaxHealth() * amount * 2.0F) > event.getDamage() / 5 ? (((LivingEntity)event.getEntity()).getMaxHealth() * amount * 2.0F) : event.getDamage() / 5);
 /*     */             }
 /*     */             else
 /*     */             {
-/* 114 */               event.setDamage((int)(SkillSealingShot.this.plugin.getCharacterManager().getMonster((LivingEntity)event.getEntity()).getMaxHealth() * amount) > event.getDamage() / 5 ? (int)(SkillSealingShot.this.plugin.getCharacterManager().getMonster((LivingEntity)event.getEntity()).getMaxHealth() * amount) : event.getDamage() / 5);
+/* 114 */               event.setDamage((((LivingEntity)event.getEntity()).getMaxHealth() * amount) > event.getDamage() / 5 ? (((LivingEntity)event.getEntity()).getMaxHealth() * amount) : event.getDamage() / 5);
 /*     */             }
 /*     */ 
 /* 118 */             event.setDamage(event.getDamage() / 5 > 1 ? event.getDamage() / 5 : 1);
@@ -134,7 +134,7 @@
 /*     */   {
 /*     */     public SealingShotBuff(Skill skill)
 /*     */     {
-/*  72 */       super("SealingShotBuff");
+/*  72 */       super(skill, "SealingShotBuff");
 /*  73 */       setDescription("SealingShot");
 /*     */     }
 /*     */   }

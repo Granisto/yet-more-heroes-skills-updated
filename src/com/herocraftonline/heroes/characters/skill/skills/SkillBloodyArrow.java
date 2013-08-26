@@ -120,12 +120,12 @@
 /* 118 */             Player heroes = (Player)t_entity;
 /* 119 */             if ((!heroes.equals(player)) && (heroes.getLocation().distanceSquared(arrow.getLocation()) <= radius))
 /*     */             {
-/* 121 */               Skill.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.POISON);
+/* 121 */               Skill.damageEntity(heroes, player, (int)damage, DamageCause.POISON);
 /*     */             }
 /* 123 */           } else if ((t_entity instanceof Creature)) {
 /* 124 */             Creature mob = (Creature)t_entity;
 /* 125 */             if (t_entity.getLocation().distanceSquared(arrow.getLocation()) <= radius) {
-/* 126 */               Skill.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.POISON);
+/* 126 */               Skill.damageEntity(mob, player, (int)damage, DamageCause.POISON);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -173,12 +173,12 @@
 /* 171 */           if ((t_entity instanceof Player)) {
 /* 172 */             Player heroes = (Player)t_entity;
 /* 173 */             if (heroes.getLocation().distanceSquared(projectile.getLocation()) <= radius)
-/* 174 */               SkillBloodyArrow.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.POISON);
+/* 174 */               SkillBloodyArrow.damageEntity(heroes, player, (int)damage, DamageCause.POISON);
 /*     */           }
 /* 176 */           else if ((t_entity instanceof Creature)) {
 /* 177 */             Creature mob = (Creature)t_entity;
 /* 178 */             if (t_entity.getLocation().distanceSquared(projectile.getLocation()) <= radius) {
-/* 179 */               SkillBloodyArrow.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.POISON);
+/* 179 */               SkillBloodyArrow.damageEntity(mob, player, (int)damage, DamageCause.POISON);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -211,7 +211,7 @@
 /*     */   {
 /*     */     public BloodyArrowBuff(Skill skill, long duration, int numAttacks)
 /*     */     {
-/*  70 */       super("BloodyArrowBuff");
+/*  70 */       super(skill,"BloodyArrowBuff");
 /*  71 */       this.types.add(EffectType.PHYSICAL);
 /*  72 */       setDescription("blood");
 /*     */     }

@@ -41,7 +41,7 @@
 /*     */ 
 /*     */   public String getDescription(Hero hero)
 /*     */   {
-/*  43 */     long duration = ()(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 10000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
+/*  43 */     long duration = (long)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 10000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
 /*     */ 
 /*  45 */     duration = duration > 0L ? duration : 0L;
 /*  46 */     String description = getDescription().replace("$1", duration + "");
@@ -103,12 +103,12 @@
 /*     */ 
 /*     */   public SkillResult use(Hero hero, String[] args)
 /*     */   {
-/* 112 */     List entities = hero.getPlayer().getNearbyEntities(3.0D, 3.0D, 3.0D);
+/* 112 */     List<Entity> entities = hero.getPlayer().getNearbyEntities(3.0D, 3.0D, 3.0D);
 /* 113 */     Player player = hero.getPlayer();
 /* 114 */     double expCreature = SkillConfigManager.getUseSetting(hero, this, "exp-per-creature-seduced", 0, false);
 /* 115 */     double expPlayer = SkillConfigManager.getUseSetting(hero, this, "exp-per-player-seduced", 0, false);
 /* 116 */     double exp = 0.0D;
-/* 117 */     long duration = ()(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 10000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
+/* 117 */     long duration = (long)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 10000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
 /*     */ 
 /* 119 */     duration = duration > 0L ? duration : 0L;
 /* 120 */     for (Entity n : entities) {
@@ -124,9 +124,9 @@
 /*     */     }
 /* 131 */     if (exp > 0.0D) {
 /* 132 */       if (hero.hasParty())
-/* 133 */         hero.getParty().gainExp(exp, HeroClass.ExperienceType.SKILL, player.getLocation());
+/* 133 */         hero.getParty().gainExp(exp, ExperienceType.SKILL, player.getLocation());
 /*     */       else {
-/* 135 */         hero.gainExp(exp, HeroClass.ExperienceType.SKILL, player.getLocation());
+/* 135 */         hero.gainExp(exp, ExperienceType.SKILL, player.getLocation());
 /*     */       }
 /*     */     }
 /* 138 */     for (Effect e : hero.getEffects()) {
@@ -143,7 +143,7 @@
 /*     */     private Player caster;
 /*     */ 
 /*     */     public CurseEffect(Skill skill, long duration, Player caster) {
-/* 152 */       super("Seduce", 20L, duration);
+/* 152 */       super(skill, "Seduce", 20L, duration);
 /* 153 */       this.types.add(EffectType.HARMFUL);
 /* 154 */       this.types.add(EffectType.PHYSICAL);
 /* 155 */       this.caster = caster;

@@ -54,27 +54,27 @@
 /*     */   {
 /*  49 */     long stunDuration = SkillConfigManager.getUseSetting(hero, this, "stun-duration", 10000, false);
 /*  50 */     if (stunDuration > 0L) {
-/*  51 */       stunDuration = ()(stunDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
+/*  51 */       stunDuration = (long)(stunDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
 /*  52 */       stunDuration = stunDuration > 0L ? stunDuration : 0L;
 /*     */     }
 /*  54 */     long slowDuration = SkillConfigManager.getUseSetting(hero, this, "slow-duration", 0, false);
 /*  55 */     if (slowDuration > 0L) {
-/*  56 */       slowDuration = ()(slowDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
+/*  56 */       slowDuration = (long)(slowDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
 /*  57 */       slowDuration = slowDuration > 0L ? slowDuration : 0L;
 /*     */     }
 /*  59 */     long rootDuration = SkillConfigManager.getUseSetting(hero, this, "root-duration", 0, false);
 /*  60 */     if (rootDuration > 0L) {
-/*  61 */       rootDuration = ()(rootDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
+/*  61 */       rootDuration = (long)(rootDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
 /*  62 */       rootDuration = rootDuration > 0L ? rootDuration : 0L;
 /*     */     }
 /*  64 */     long silenceDuration = SkillConfigManager.getUseSetting(hero, this, "silence-duration", 0, false);
 /*  65 */     if (silenceDuration > 0L) {
-/*  66 */       silenceDuration = ()(silenceDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
+/*  66 */       silenceDuration = (long)(silenceDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
 /*  67 */       silenceDuration = silenceDuration > 0L ? silenceDuration : 0L;
 /*     */     }
 /*  69 */     long invulnDuration = SkillConfigManager.getUseSetting(hero, this, "safefall-duration", 0, false);
 /*  70 */     if (invulnDuration > 0L) {
-/*  71 */       invulnDuration = ()(invulnDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
+/*  71 */       invulnDuration = (long)(invulnDuration + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this)) / 1000L;
 /*  72 */       invulnDuration = invulnDuration > 0L ? invulnDuration : 0L;
 /*     */     }
 /*  74 */     int damage = (int)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DAMAGE.node(), 0, false) + SkillConfigManager.getUseSetting(hero, this, "damage-increase", 0.0D, false) * hero.getSkillLevel(this));
@@ -215,22 +215,22 @@
 /* 218 */       i = i > 0 ? i : 0;
 /* 219 */       long l1 = SkillConfigManager.getUseSetting(localHero1, this.skill, "stun-duration", 10000, false);
 /* 220 */       if (l1 > 0L) {
-/* 221 */         l1 = ()(l1 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
+/* 221 */         l1 = (long)(l1 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
 /* 222 */         l1 = l1 > 0L ? l1 : 0L;
 /*     */       }
 /* 224 */       long l2 = SkillConfigManager.getUseSetting(localHero1, this.skill, "slow-duration", 0, false);
 /* 225 */       if (l2 > 0L) {
-/* 226 */         l2 = ()(l2 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
+/* 226 */         l2 = (long)(l2 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
 /* 227 */         l2 = l2 > 0L ? l2 : 0L;
 /*     */       }
 /* 229 */       long l3 = SkillConfigManager.getUseSetting(localHero1, this.skill, "root-duration", 0, false);
 /* 230 */       if (l3 > 0L) {
-/* 231 */         l3 = ()(l3 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
+/* 231 */         l3 = (long)(l3 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
 /* 232 */         l3 = l3 > 0L ? l3 : 0L;
 /*     */       }
 /* 234 */       long l4 = SkillConfigManager.getUseSetting(localHero1, this.skill, "silence-duration", 0, false);
 /* 235 */       if (l4 > 0L) {
-/* 236 */         l4 = ()(l4 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
+/* 236 */         l4 = (long)(l4 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
 /* 237 */         l4 = l4 > 0L ? l4 : 0L;
 /*     */       }
 /* 239 */       int j = (int)(SkillConfigManager.getUseSetting(localHero1, this.skill, SkillSetting.DAMAGE.node(), 0, false) + SkillConfigManager.getUseSetting(localHero1, this.skill, "damage-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
@@ -238,13 +238,13 @@
 /* 241 */       j = j > 0 ? j : 0;
 /* 242 */       long l5 = SkillConfigManager.getUseSetting(localHero1, this.skill, "safefall-duration", 0, false);
 /* 243 */       if (l5 > 0L) {
-/* 244 */         l5 = ()(l5 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
+/* 244 */         l5 = (long)(l5 + SkillConfigManager.getUseSetting(localHero1, this.skill, "duration-increase", 0.0D, false) * localHero1.getSkillLevel(this.skill));
 /* 245 */         l5 = l5 > 0L ? l5 : 0L;
 /* 246 */         if (l5 > 0L) {
 /* 247 */           localHero1.addEffect(new SafeFallEffect(this.skill, l5));
 /*     */         }
 /*     */       }
-/* 250 */       Iterator localIterator = localPlayer1.getNearbyEntities(i, i, i).iterator();
+/* 250 */       Iterator<Entity> localIterator = localPlayer1.getNearbyEntities(i, i, i).iterator();
 /* 251 */       while (localIterator.hasNext())
 /*     */       {
 /* 253 */         Entity localEntity = (Entity)localIterator.next();
@@ -270,11 +270,11 @@
 /* 275 */                 localHero2.addEffect(new SilenceEffect(this.skill, l4));
 /*     */               }
 /* 277 */               if (j > 0) {
-/* 278 */                 Skill.damageEntity(localLivingEntity, localPlayer1, j, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 278 */                 Skill.damageEntity(localLivingEntity, localPlayer1, j, DamageCause.ENTITY_ATTACK);
 /*     */               }
 /*     */             }
 /* 281 */             if (j > 0) {
-/* 282 */               Skill.damageEntity(localLivingEntity, localPlayer1, j, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 282 */               Skill.damageEntity(localLivingEntity, localPlayer1, j, DamageCause.ENTITY_ATTACK);
 /*     */             }
 /*     */           }
 /*     */         }

@@ -100,7 +100,7 @@
 /* 104 */     int radius = (int)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.RADIUS.node(), 3, false) + SkillConfigManager.getUseSetting(hero, this, "radius-increase", 0.0D, false) * hero.getSkillLevel(this));
 /*     */ 
 /* 106 */     radius = radius > 0 ? radius : 0;
-/* 107 */     long duration = ()(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 3000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
+/* 107 */     long duration = (long)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DURATION.node(), 3000, false) + SkillConfigManager.getUseSetting(hero, this, "duration-increase", 0.0D, false) * hero.getSkillLevel(this));
 /*     */ 
 /* 109 */     duration = duration > 0L ? duration : 0L;
 /* 110 */     int damage = (int)(SkillConfigManager.getUseSetting(hero, this, SkillSetting.DAMAGE.node(), 6, false) + SkillConfigManager.getUseSetting(hero, this, "damage-increase", 0.0D, false) * hero.getSkillLevel(this));
@@ -115,14 +115,14 @@
 /* 119 */             tHero.addEffect(new NauseaEffect(this, duration, "", ""));
 /*     */           }
 /* 121 */           if (damage > 0) {
-/* 122 */             damageEntity(tPlayer, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 122 */             damageEntity(tPlayer, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */           }
 /*     */         }
 /*     */       }
 /* 126 */       else if ((e instanceof Creature)) {
 /* 127 */         LivingEntity le = (LivingEntity)e;
 /* 128 */         if (damage > 0) {
-/* 129 */           damageEntity(le, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 129 */           damageEntity(le, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */         }
 /*     */       }
 /*     */     }

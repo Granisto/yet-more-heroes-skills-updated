@@ -110,14 +110,14 @@
 /* 111 */     for (Entity e : player.getNearbyEntities(radius, radius, radius))
 /* 112 */       if ((e instanceof Creature)) {
 /* 113 */         Creature c = (Creature)e;
-/* 114 */         damageEntity(c, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 114 */         damageEntity(c, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */       }
 /* 116 */       else if ((e instanceof Player)) {
 /* 117 */         Player p = (Player)e;
 /* 118 */         if ((!hero.hasParty()) || (!hero.getParty().isPartyMember(this.plugin.getCharacterManager().getHero(p))))
 /*     */         {
 /* 121 */           if (damageCheck(player, p)) {
-/* 122 */             damageEntity(p, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 122 */             damageEntity(p, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */ 
 /* 124 */             Hero tHero = this.plugin.getCharacterManager().getHero(p);
 /* 125 */             tHero.addEffect(new SilenceEffect(this, duration));

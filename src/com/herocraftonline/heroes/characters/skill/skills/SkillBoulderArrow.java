@@ -120,12 +120,12 @@
 /* 118 */             Player heroes = (Player)t_entity;
 /* 119 */             if ((!heroes.equals(player)) && (heroes.getLocation().distanceSquared(arrow.getLocation()) <= radius))
 /*     */             {
-/* 121 */               Skill.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.SUFFOCATION);
+/* 121 */               Skill.damageEntity(heroes, player, (int)damage, DamageCause.SUFFOCATION);
 /*     */             }
 /* 123 */           } else if ((t_entity instanceof Creature)) {
 /* 124 */             Creature mob = (Creature)t_entity;
 /* 125 */             if (t_entity.getLocation().distanceSquared(arrow.getLocation()) <= radius) {
-/* 126 */               Skill.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.SUFFOCATION);
+/* 126 */               Skill.damageEntity(mob, player, (int)damage, DamageCause.SUFFOCATION);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -173,12 +173,12 @@
 /* 171 */           if ((t_entity instanceof Player)) {
 /* 172 */             Player heroes = (Player)t_entity;
 /* 173 */             if (heroes.getLocation().distanceSquared(projectile.getLocation()) <= radius)
-/* 174 */               SkillBoulderArrow.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.SUFFOCATION);
+/* 174 */               SkillBoulderArrow.damageEntity(heroes, player, (int)damage, DamageCause.SUFFOCATION);
 /*     */           }
 /* 176 */           else if ((t_entity instanceof Creature)) {
 /* 177 */             Creature mob = (Creature)t_entity;
 /* 178 */             if (t_entity.getLocation().distanceSquared(projectile.getLocation()) <= radius) {
-/* 179 */               SkillBoulderArrow.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.SUFFOCATION);
+/* 179 */               SkillBoulderArrow.damageEntity(mob, player, (int)damage, DamageCause.SUFFOCATION);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -211,7 +211,7 @@
 /*     */   {
 /*     */     public BoulderArrowBuff(Skill skill, long duration, int numAttacks)
 /*     */     {
-/*  70 */       super("BoulderArrowBuff");
+/*  70 */       super(skill,"BoulderArrowBuff");
 /*  71 */       this.types.add(EffectType.PHYSICAL);
 /*  72 */       setDescription("earth");
 /*     */     }

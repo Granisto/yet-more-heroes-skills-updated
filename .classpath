@@ -2,5 +2,23 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="C:/Users/Andrew/.m2/repository/com/herocraftonline/heroes/Heroes/1.5.3.3/Heroes-1.5.3.3.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="com.herocraftonline.heroes"/>
+			<attribute name="maven.artifactId" value="Heroes"/>
+			<attribute name="maven.version" value="1.5.3.3"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Andrew/.m2/repository/org/spigotmc/spigot-api/1.6.2-R0.1-SNAPSHOT/spigot-api-1.6.2-R0.1-SNAPSHOT.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="org.spigotmc"/>
+			<attribute name="maven.artifactId" value="spigot-api"/>
+			<attribute name="maven.version" value="1.6.2-R0.1-SNAPSHOT"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

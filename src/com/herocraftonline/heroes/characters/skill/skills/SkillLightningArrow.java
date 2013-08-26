@@ -119,12 +119,12 @@
 /* 117 */             Player heroes = (Player)t_entity;
 /* 118 */             if ((!heroes.equals(player)) && (heroes.getLocation().distanceSquared(arrow.getLocation()) <= radius))
 /*     */             {
-/* 120 */               Skill.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.LIGHTNING);
+/* 120 */               Skill.damageEntity(heroes, player, (int)damage, DamageCause.LIGHTNING);
 /*     */             }
 /* 122 */           } else if ((t_entity instanceof Creature)) {
 /* 123 */             Creature mob = (Creature)t_entity;
 /* 124 */             if (t_entity.getLocation().distanceSquared(arrow.getLocation()) <= radius) {
-/* 125 */               Skill.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.LIGHTNING);
+/* 125 */               Skill.damageEntity(mob, player, (int)damage, DamageCause.LIGHTNING);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -172,12 +172,12 @@
 /* 170 */           if ((t_entity instanceof Player)) {
 /* 171 */             Player heroes = (Player)t_entity;
 /* 172 */             if (heroes.getLocation().distanceSquared(projectile.getLocation()) <= radius)
-/* 173 */               SkillLightningArrow.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.LIGHTNING);
+/* 173 */               SkillLightningArrow.damageEntity(heroes, player, (int)damage, DamageCause.LIGHTNING);
 /*     */           }
 /* 175 */           else if ((t_entity instanceof Creature)) {
 /* 176 */             Creature mob = (Creature)t_entity;
 /* 177 */             if (t_entity.getLocation().distanceSquared(projectile.getLocation()) <= radius) {
-/* 178 */               SkillLightningArrow.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.LIGHTNING);
+/* 178 */               SkillLightningArrow.damageEntity(mob, player, (int)damage, DamageCause.LIGHTNING);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -210,7 +210,7 @@
 /*     */   {
 /*     */     public LightningArrowBuff(Skill skill, long duration, int numAttacks)
 /*     */     {
-/*  69 */       super("LightningArrowBuff");
+/*  69 */       super(skill,"LightningArrowBuff");
 /*  70 */       this.types.add(EffectType.FIRE);
 /*  71 */       setDescription("lightning");
 /*     */     }

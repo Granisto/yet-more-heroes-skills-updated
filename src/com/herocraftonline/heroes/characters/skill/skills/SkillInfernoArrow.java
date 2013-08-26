@@ -120,12 +120,12 @@
 /* 118 */             Player heroes = (Player)t_entity;
 /* 119 */             if ((!heroes.equals(player)) && (heroes.getLocation().distanceSquared(arrow.getLocation()) <= radius))
 /*     */             {
-/* 121 */               Skill.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.LAVA);
+/* 121 */               Skill.damageEntity(heroes, player, (int)damage, DamageCause.LAVA);
 /*     */             }
 /* 123 */           } else if ((t_entity instanceof Creature)) {
 /* 124 */             Creature mob = (Creature)t_entity;
 /* 125 */             if (t_entity.getLocation().distanceSquared(arrow.getLocation()) <= radius) {
-/* 126 */               Skill.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.LAVA);
+/* 126 */               Skill.damageEntity(mob, player, (int)damage, DamageCause.LAVA);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -173,12 +173,12 @@
 /* 171 */           if ((t_entity instanceof Player)) {
 /* 172 */             Player heroes = (Player)t_entity;
 /* 173 */             if (heroes.getLocation().distanceSquared(projectile.getLocation()) <= radius)
-/* 174 */               SkillInfernoArrow.damageEntity(heroes, player, (int)damage, EntityDamageEvent.DamageCause.LAVA);
+/* 174 */               SkillInfernoArrow.damageEntity(heroes, player, (int)damage, DamageCause.LAVA);
 /*     */           }
 /* 176 */           else if ((t_entity instanceof Creature)) {
 /* 177 */             Creature mob = (Creature)t_entity;
 /* 178 */             if (t_entity.getLocation().distanceSquared(projectile.getLocation()) <= radius) {
-/* 179 */               SkillInfernoArrow.damageEntity(mob, player, (int)damage, EntityDamageEvent.DamageCause.LAVA);
+/* 179 */               SkillInfernoArrow.damageEntity(mob, player, (int)damage, DamageCause.LAVA);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -211,7 +211,7 @@
 /*     */   {
 /*     */     public InfernoArrowBuff(Skill skill, long duration, int numAttacks)
 /*     */     {
-/*  70 */       super("InfernoArrowBuff");
+/*  70 */       super(skill, "InfernoArrowBuff");
 /*  71 */       this.types.add(EffectType.FIRE);
 /*  72 */       setDescription("blazing inferno");
 /*     */     }

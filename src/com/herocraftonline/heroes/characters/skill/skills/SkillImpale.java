@@ -78,7 +78,7 @@
 /* 76 */     target.setVelocity(new Vector(Math.random() * 0.4D - 0.2D, 0.8D, Math.random() * 0.4D - 0.2D));
 /*    */ 
 /* 78 */     int damage = SkillConfigManager.getUseSetting(hero, this, SkillSetting.DAMAGE, 1, false);
-/* 79 */     damageEntity(target, hero.getPlayer(), damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK, false);
+/* 79 */     damageEntity(target, hero.getPlayer(), damage, DamageCause.ENTITY_ATTACK, false);
 /*    */ 
 /* 81 */     if ((target instanceof Player)) {
 /* 82 */       Player targetPlayer = (Player)target;

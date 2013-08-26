@@ -101,14 +101,14 @@
 /* 107 */     for (Entity e : player.getNearbyEntities(radius, radius, radius)) {
 /* 108 */       if ((e instanceof Creature)) {
 /* 109 */         Creature c = (Creature)e;
-/* 110 */         damageEntity(c, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 110 */         damageEntity(c, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */       }
 /* 112 */       else if ((e instanceof Player)) {
 /* 113 */         Player p = (Player)e;
 /* 114 */         if ((!hero.hasParty()) || (!hero.getParty().isPartyMember(this.plugin.getCharacterManager().getHero(p))))
 /*     */         {
 /* 117 */           if (damageCheck(player, p))
-/* 118 */             damageEntity(p, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 118 */             damageEntity(p, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */         }
 /*     */       }
 /*     */     }

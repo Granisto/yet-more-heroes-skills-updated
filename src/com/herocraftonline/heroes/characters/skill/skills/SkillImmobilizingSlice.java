@@ -107,14 +107,14 @@
 /* 115 */     for (Entity e : player.getNearbyEntities(radius, radius, radius))
 /* 116 */       if ((e instanceof Creature)) {
 /* 117 */         Creature c = (Creature)e;
-/* 118 */         damageEntity(c, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 118 */         damageEntity(c, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */       }
 /* 120 */       else if ((e instanceof Player)) {
 /* 121 */         Player p = (Player)e;
 /* 122 */         if ((!hero.hasParty()) || (!hero.getParty().isPartyMember(this.plugin.getCharacterManager().getHero(p))))
 /*     */         {
 /* 125 */           if (damageCheck(player, p)) {
-/* 126 */             damageEntity(p, player, damage, EntityDamageEvent.DamageCause.ENTITY_ATTACK);
+/* 126 */             damageEntity(p, player, damage, DamageCause.ENTITY_ATTACK);
 /*     */ 
 /* 128 */             Hero tHero = this.plugin.getCharacterManager().getHero(p);
 /* 129 */             tHero.addEffect(new DisarmEffect(this.blind, duration, "", ""));

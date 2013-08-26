@@ -86,7 +86,7 @@
 /*    */   {
 /*    */     public SuperChargeBuff(Skill skill)
 /*    */     {
-/* 60 */       super("SuperChargeBuff");
+/* 60 */       super(skill,"SuperChargeBuff");
 /* 61 */       setDescription("PreciseShot");
 /*    */     }
 /*    */   }

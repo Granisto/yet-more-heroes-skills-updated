@@ -113,7 +113,7 @@
 /* 117 */       maxDuration = minDuration;
 /*     */     }
 /* 119 */     long randDuration = maxDuration - minDuration;
-/* 120 */     long duration = ()(Math.random() * randDuration + minDuration);
+/* 120 */     long duration = (long)(Math.random() * randDuration + minDuration);
 /* 121 */     broadcastExecuteText(hero);
 /* 122 */     Messaging.send(player, "Duration " + duration / 1000L + "s", new Object[0]);
 /* 123 */     WebbingBarrierEffect gEffect = new WebbingBarrierEffect(this, "WebbingBarrier", duration);
@@ -127,7 +127,7 @@
 /*     */     private Block prevRefBlock;
 /* 131 */     private ArrayList<Block> glassList = new ArrayList();
 /*     */ 
-/* 133 */     public WebbingBarrierEffect(Skill skill, String name, long duration) { super(name, 200L, duration);
+/* 133 */     public WebbingBarrierEffect(Skill skill, String name, long duration) { super(skill, name, 200L, duration);
 /* 134 */       this.types.add(EffectType.BENEFICIAL);
 /* 135 */       this.types.add(EffectType.DISPELLABLE);
 /* 136 */       this.types.add(EffectType.ICE);

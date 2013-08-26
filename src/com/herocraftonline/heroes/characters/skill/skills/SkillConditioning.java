@@ -59,9 +59,9 @@
 /*    */     public SkillHeroListener() {
 /*    */     }
 /* 60 */     @EventHandler
-/*    */     public void onEntityDamage(EntityDamageEvent event) { if (((event.isCancelled()) || (event.getCause() != EntityDamageEvent.DamageCause.ENTITY_ATTACK) || (!(event.getEntity() instanceof Player)) || (event.getDamage() < 1)) && 
-/* 61 */         ((event.isCancelled()) || (event.getCause() != EntityDamageEvent.DamageCause.PROJECTILE) || (!(event.getEntity() instanceof Player)) || (event.getDamage() < 1)) && (
-/* 62 */         (event.isCancelled()) || (event.getCause() != EntityDamageEvent.DamageCause.THORNS) || (!(event.getEntity() instanceof Player)) || (event.getDamage() < 1))) {
+/*    */     public void onEntityDamage(EntityDamageEvent event) { if (((event.isCancelled()) || (event.getCause() != DamageCause.ENTITY_ATTACK) || (!(event.getEntity() instanceof Player)) || (event.getDamage() < 1)) && 
+/* 61 */         ((event.isCancelled()) || (event.getCause() != DamageCause.PROJECTILE) || (!(event.getEntity() instanceof Player)) || (event.getDamage() < 1)) && (
+/* 62 */         (event.isCancelled()) || (event.getCause() != DamageCause.THORNS) || (!(event.getEntity() instanceof Player)) || (event.getDamage() < 1))) {
 /* 63 */         return;
 /*    */       }
 /* 65 */       Player player = (Player)event.getEntity();
