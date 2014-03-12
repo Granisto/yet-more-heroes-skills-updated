@@ -1,9 +1,6 @@
 /*     */ package com.herocraftonline.heroes.characters.skill.skills;
-/*     */ 
-/*     */ import com.herocraftonline.heroes.DebugTimer;
 /*     */ import com.herocraftonline.heroes.Heroes;
 /*     */ import com.herocraftonline.heroes.api.SkillResult;
-/*     */ import com.herocraftonline.heroes.characters.CharacterManager;
 /*     */ import com.herocraftonline.heroes.characters.Hero;
 /*     */ import com.herocraftonline.heroes.characters.effects.EffectType;
 /*     */ import com.herocraftonline.heroes.characters.effects.common.ImbueEffect;
@@ -12,12 +9,8 @@
 /*     */ import com.herocraftonline.heroes.characters.skill.SkillConfigManager;
 /*     */ import com.herocraftonline.heroes.characters.skill.SkillSetting;
 /*     */ import com.herocraftonline.heroes.characters.skill.SkillType;
-/*     */ import java.util.Set;
 /*     */ import org.bukkit.Bukkit;
 /*     */ import org.bukkit.Effect;
-/*     */ import org.bukkit.Location;
-/*     */ import org.bukkit.Server;
-/*     */ import org.bukkit.World;
 /*     */ import org.bukkit.configuration.ConfigurationSection;
 /*     */ import org.bukkit.entity.Arrow;
 /*     */ import org.bukkit.entity.Creature;
@@ -32,7 +25,6 @@
 /*     */ import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 /*     */ import org.bukkit.event.entity.EntityShootBowEvent;
 /*     */ import org.bukkit.event.entity.ProjectileHitEvent;
-/*     */ import org.bukkit.plugin.PluginManager;
 /*     */ 
 /*     */ public class SkillBloodyArrow extends ActiveSkill
 /*     */ {
@@ -108,24 +100,24 @@
 /* 106 */       int radius = (int)Math.pow(SkillConfigManager.getUseSetting(hero, this.skill, "radius", 5, false), 2.0D);
 /*     */ 
 /* 108 */       float damage = SkillConfigManager.getUseSetting(hero, this.skill, "DAMAGE", 5, false);
-/* 109 */       float blockdamage = damage;
 /* 110 */       int block_dmg = SkillConfigManager.getUseSetting(hero, this.skill, "block-dmg", 0, false);
 /*     */ 
 /* 112 */       if (block_dmg == 0)
 /*     */       {
-/* 114 */         blockdamage = 0.0F;
 /*     */ 
 /* 116 */         for (Entity t_entity : player.getWorld().getEntities()) {
 /* 117 */           if ((t_entity instanceof Player)) {
 /* 118 */             Player heroes = (Player)t_entity;
 /* 119 */             if ((!heroes.equals(player)) && (heroes.getLocation().distanceSquared(arrow.getLocation()) <= radius))
 /*     */             {
-/* 121 */               Skill.damageEntity(heroes, player, (int)damage, DamageCause.POISON);
+                        addSpellTarget(heroes,hero);
+/* 121 */               Skill.damageEntity(heroes, player, damage, DamageCause.POISON);
 /*     */             }
 /* 123 */           } else if ((t_entity instanceof Creature)) {
 /* 124 */             Creature mob = (Creature)t_entity;
 /* 125 */             if (t_entity.getLocation().distanceSquared(arrow.getLocation()) <= radius) {
-/* 126 */               Skill.damageEntity(mob, player, (int)damage, DamageCause.POISON);
+                        addSpellTarget(mob,hero);
+/* 126 */               Skill.damageEntity(mob, player, damage, DamageCause.POISON);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -162,23 +154,24 @@
 /* 160 */       int radius = (int)Math.pow(SkillConfigManager.getUseSetting(hero, this.skill, "radius", 5, false), 2.0D);
 /*     */ 
 /* 162 */       float damage = SkillConfigManager.getUseSetting(hero, this.skill, "DAMAGE", 5, false);
-/* 163 */       float blockdamage = damage;
 /* 164 */       int block_dmg = SkillConfigManager.getUseSetting(hero, this.skill, "block-dmg", 0, false);
 /*     */ 
 /* 166 */       if (block_dmg == 0)
 /*     */       {
-/* 168 */         blockdamage = 0.0F;
 /*     */ 
 /* 170 */         for (Entity t_entity : player.getWorld().getEntities()) {
 /* 171 */           if ((t_entity instanceof Player)) {
 /* 172 */             Player heroes = (Player)t_entity;
-/* 173 */             if (heroes.getLocation().distanceSquared(projectile.getLocation()) <= radius)
-/* 174 */               SkillBloodyArrow.damageEntity(heroes, player, (int)damage, DamageCause.POISON);
+/* 173 */             if (heroes.getLocation().distanceSquared(projectile.getLocation()) <= radius) {
+                        addSpellTarget(heroes,hero);
+/* 174 */               SkillBloodyArrow.damageEntity(heroes, player, damage, DamageCause.POISON);
+}
 /*     */           }
 /* 176 */           else if ((t_entity instanceof Creature)) {
 /* 177 */             Creature mob = (Creature)t_entity;
 /* 178 */             if (t_entity.getLocation().distanceSquared(projectile.getLocation()) <= radius) {
-/* 179 */               SkillBloodyArrow.damageEntity(mob, player, (int)damage, DamageCause.POISON);
+                        addSpellTarget(mob,hero);
+/* 179 */               SkillBloodyArrow.damageEntity(mob, player, damage, DamageCause.POISON);
 /*     */             }
 /*     */           }
 /*     */ 
@@ -218,7 +211,3 @@
 /*     */   }
 /*     */ }
 
-/* Location:           C:\Users\Awesome\Desktop\CODING\Heroes\YMH Skills\SkillBloodyArrow.jar
- * Qualified Name:     com.herocraftonline.heroes.characters.skill.skills.SkillBloodyArrow
- * JD-Core Version:    0.6.2
- */
